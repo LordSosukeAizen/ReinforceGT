@@ -1,4 +1,3 @@
-from re import L
 import yfinance as yf
 import numpy as np
 # from queue import Queue

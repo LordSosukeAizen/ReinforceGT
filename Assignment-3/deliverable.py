@@ -49,8 +49,7 @@ class BinomialTreeModel():
         print(f"Risk-neutral probability (p): {self.p}")
         
 
-    def construct_tree(self):
-        
+    def construct_tree(self)
         starting_price = float(self.close_data.iloc[0])
 
         for i in range(self.N + 1):
@@ -64,8 +63,6 @@ class BinomialTreeModel():
 
         
     def construct_payoff_matrix(self):
-        
-        
         if self.tree == []: 
             self.construct_tree()
         
@@ -74,8 +71,6 @@ class BinomialTreeModel():
         return payoffs
 
     def price_option_game_theoretic(self):
-    
-        
         self.construct_tree()
         payoff_tree = self.construct_payoff_matrix()
         
@@ -108,8 +103,6 @@ class BinomialTreeModel():
 
         return value_tree[0][0] 
 
-    
-        
 model = BinomialTreeModel(stock_ticker, start_date, end_date, risk_free_rate, strike_price)
 value = model.price_option_game_theoretic()
 print(f"Option Price (Game-Theoretic): {value:.2f}")

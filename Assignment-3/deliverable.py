@@ -49,7 +49,7 @@ class BinomialTreeModel():
         print(f"Risk-neutral probability (p): {self.p}")
         
 
-    def construct_tree(self)
+    def construct_tree(self):
         starting_price = float(self.close_data.iloc[0])
 
         for i in range(self.N + 1):

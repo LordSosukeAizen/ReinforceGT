@@ -1,9 +1,14 @@
 import yfinance as yf
 import numpy as np
+import warnings
+
 # from queue import Queue
 
+
+warnings.filterwarnings('ignore')
+
 stock_ticker = 'AAPL'
-start_date = '2022-01-01'
+start_dates = ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04', '2022-01-05']
 end_date = '2023-01-01'
 risk_free_rate = 0.05 
 
@@ -102,6 +107,8 @@ class BinomialTreeModel():
 
         return value_tree[0][0] 
 
-model = BinomialTreeModel(stock_ticker, start_date, end_date, risk_free_rate, strike_price)
-value = model.price_option_game_theoretic()
-print(f"Option Price (Game-Theoretic): {value:.2f}")
+
+for start_date in start_dates:
+    model = BinomialTreeModel(stock_ticker, start_date, end_date, risk_free_rate, strike_price)
+    value = model.price_option_game_theoretic()
+    print(f"Profit gained by immediate execution of option on {start_date} (Game-Theoretic): {value:.2f}")
